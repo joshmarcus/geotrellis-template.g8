@@ -23,8 +23,6 @@ object MyBuild extends Build {
       "junit" % "junit" % "4.5" % "test",
       "org.eclipse.jetty" % "jetty-webapp" % "8.1.0.RC4",
       "com.sun.jersey" % "jersey-bundle" % "1.11",
-      "com.azavea.math" %% "numeric" % "0.1" from "http://n0d.es/jars/numeric_2.9.1-0.1.jar",
-      "com.azavea.math.plugin" %% "optimized-numeric" % "0.1" from "http://plastic-idolatry.com/jars/optimized-numeric-plugin_2.9.1-0.1.jar",
       "com.azavea.geotrellis" %% "geotrellis" % "0.7.0-SNAPSHOT"
     ),
 
@@ -41,12 +39,3 @@ object MyBuild extends Build {
     fork in run := true
   )
 }
-
-
-object PluginDef extends Build {
-  lazy val root = Project("plugins", file(".")) dependsOn(pamflet)
-
-  lazy val pamflet = uri("git://github.com/n8han/pamflet-plugin#0.3.0")
-}
-
-//TODO: add in new sbt-assembly
